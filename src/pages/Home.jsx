@@ -15,8 +15,7 @@ export const Home = () => {
       <section id="container" className="flex justify-around ">
         <section
           data-aos="fade-right"
-          className=" flex-1 flex flex-col items-center justify-around py-5 gap-6 "
-        >
+          className=" flex-1 flex flex-col items-center justify-around py-5 gap-6 ">
           <h1 className="text-3xl font-bold font-mono">Publish your passion</h1>
           <p className="text-2xl font-extrabold w-3/4 h-8 text-red-600  font-mono">
             <ReactTyped
@@ -26,7 +25,7 @@ export const Home = () => {
               loop
             />
           </p>
-          <Link to="/blog">
+          <Link to="/create">
             <button className="text-2xl font-mono bg-red-600 text-white p-3 rounded-md">
               Get strated.
             </button>
@@ -42,16 +41,16 @@ export const Home = () => {
           />
         </figure>
       </section>
-      <section className="text-center text-white h-96 p-6 bg-orange-500 ">
-        <h1 className="text-6xl">Choose the perfect design</h1>
-        <div data-aos="zoom-in">
+      <section  className="text-center   text-black h-96 p-6  second_div">
+        <h1 className="text-6xl text-red-600 font-bold">Choose the perfect design</h1>
+        <div className="secondpart" data-aos="zoom-in">
         <p className="m-auto mt-4 text-center w-3/5 text-lg p-8">
           Create a beautiful blog that fits your style. Choose from a selction
           of easy-to-use templates . All with flexible layouts and hundreds of
           background images or design something new.
         </p>
+        
         </div>
-        <img id="second" src="./second.png"/>
       </section>
     </div>
   );
