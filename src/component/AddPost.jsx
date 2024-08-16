@@ -1,16 +1,18 @@
 import  { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../Redux/action';
+import { useAuth } from '@clerk/clerk-react';
 
 const AddPost = () => {
   const [title, setTitle] = useState('');
   const [post,setPost] = useState('');
   
   const dispatch = useDispatch();
+  const { getToken } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addPost( {title,description:post}));
+    dispatch(addPost( {title,description:post},getToken));
     setTitle('');
     setPost('')
     

@@ -3,20 +3,24 @@ import {API_URL} from '../API/Api.js'
 import axios from "axios";
 
 
-export const addPost = (post) => async (dispatch) => {
+export const addPost = (post) => async (dispatch, getState) => {
   try {
-    // Dispatching request action
     dispatch({ type: ADD_POST_REQUEST });
 
-   
-    const response = await axios.post(`${API_URL}/api/blogs`, post);
+    const { auth } = getState();  
+    const token = await auth.getToken();
+
+    const response = await axios.post(`${API_URL}/api/blogs`, post ,{
+      headers: {
+        Authorization: `Bearer ${token}`,  
+      },
+    });
 
     dispatch({
       type: ADD_POST_SUCCESS,
       payload: response,
     });
   } catch (error) {
-    // Dispatching failure action with error message
     dispatch({
       type: ADD_POST_FAILURE,
       payload: error.response && error.response.data.message
