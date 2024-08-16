@@ -15,6 +15,7 @@
     background-position: center;
 }
 .secondpart{
+    width: 100%;
     backdrop-filter: blur(15px);
     font-weight: 600;
 }

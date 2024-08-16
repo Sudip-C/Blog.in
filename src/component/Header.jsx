@@ -8,7 +8,7 @@ const handleClick=()=>{
     setActive((prev)=>!prev)
 }
     return(
-        <div className="  border-2 border-gray-200 p-4 flex justify-around "
+        <div className=" sticky top-0 z-10 opacity-100 border-2 bg-gray-50 border-gray-200 p-4 flex items-center justify-around "
         >
             <div className=" h-12 flex-2    ">
                 <img src="/Blog.in.png" className="h-full"  alt="logo"/>

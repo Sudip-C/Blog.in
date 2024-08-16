@@ -1,26 +1,24 @@
 import { useSelector } from 'react-redux';
-import { Slate, Editable, withReact } from 'slate-react';
-import { createEditor } from 'slate';
-import { withHistory } from 'slate-history';
-import { useMemo } from 'react';
+import {Link as NavLink} from "react-router-dom"
 
 const Blog = () => {
-  const posts = useSelector((state) => state.blog.posts);
-  const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+  const posts = useSelector((state) =>(state.blog.posts));
+
 
   return (
-    <div>
-      <h2>Blog Posts</h2>
-      <ul>
-        {posts.map((post, index) => (
-          <li key={index}>
-            <h3>{post.title}</h3>
-            <Slate editor={editor} value={post.content} onChange={() => {}}>
-              <Editable readOnly />
-            </Slate>
-          </li>
+    <div className='p-3' > 
+      <h1 className='text-3xl my-3 font-bold'>Our Recent Blogs</h1>
+      <hr />
+      <div className=' my-4 grid grid-cols-4 gap-3'>
+        {posts?.map((post, index) => (
+          
+            <div  key={index}className='border-2 border-gray-400 rounded-md p-3'>
+              <NavLink to={`/blog/${post.id}`}><h1 className='text-2xl font-bold'>{post.title}</h1></NavLink>
+              <h3>{post.post.slice(0,10)}...</h3>
+            </div>
+          
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
