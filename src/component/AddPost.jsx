@@ -10,7 +10,7 @@ const AddPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addPost( {id:Math.random()*100,title,post}));
+    dispatch(addPost( {title,description:post}));
     setTitle('');
     setPost('')
     
